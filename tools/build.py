@@ -6,7 +6,7 @@ Each page is written to <slug>/index.html (home page to index.html).
 """
 import html, json, os, re
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "docs")
 SITE = "Dialmio Help Center"
 SUPPORT_PHONE = "+91 99209 37711"
 SUPPORT_WA = "919920937711"
@@ -31,6 +31,15 @@ def ui(t):
 PAGES = []
 
 
+# Videos shown at the end of a page: slug -> file name in assets/video (mp4 + jpg poster)
+VIDEOS = {"getting-started": "getting-started"}
+
+
+def video_block(name, R):
+    return (f'<h2>Video guide</h2><div class="video"><video controls preload="none" playsinline '
+            f'poster="{R}assets/video/{name}.jpg"><source src="{R}assets/video/{name}.mp4" type="video/mp4"></video></div>')
+
+
 def page(slug, title, group, icon, summary, body, nav=None):
     PAGES.append(dict(slug=slug, title=title, nav=nav or title, group=group, icon=icon, summary=summary, body=body))
 
@@ -52,11 +61,9 @@ page("getting-started", "Getting started with Dialmio", "Start here", "🚀",
 <li>On the welcome screen tap {ui("Make Default Dialer, It's Free")}.</li>
 <li>In the pop-up <b>Set Dialmio as your default phone app?</b> select <b>Dialmio</b> and tap {ui("Set as default")}.</li>
 </ol>
-{shots(("onboarding", "Welcome screen"), ("default-dialer", "Choose Dialmio as default"))}
 <div class="tip"><b>Your normal calls work exactly the same</b>Incoming calls, the keypad and your contacts keep working as before. Your calls and customer data stay private on the phone until you choose to sign in and back them up.</div>
 
 <h2>Get to know the home screen</h2>
-{shots(("home", "Home screen"), ("quick-options", "All Tools menu"))}
 <h3>Top tabs</h3>
 <table>
 <tr><th>Tab</th><th>What it shows</th></tr>
@@ -79,7 +86,6 @@ page("getting-started", "Getting started with Dialmio", "Start here", "🚀",
 <li>Choose <b>Phone</b> (or <b>Email</b>), enter your mobile number and tap {ui("Get OTP")}.</li>
 <li>Enter the 6-digit code sent to your number and tap {ui("Verify &amp; continue")}. On most phones the code is filled in automatically.</li>
 </ol>
-{shots(("sign-in", "Sign in with phone"))}
 
 <h2>Turn on backup &amp; sync</h2>
 <p>After sign-in Dialmio walks you through a 3-step Backup &amp; sync setup. See <a href="{{R}}backup-sync/">Backup &amp; sync</a> for every option explained.</p>
@@ -183,10 +189,8 @@ page("backup-sync", "Backup & sync", "Features", "☁️",
 
 <h2>Step 1 — Agree</h2>
 <p>Read what is backed up and tap {ui("I Agree")}. Tap {ui("Not now")} to keep everything on the phone only.</p>
-{shots(("backup-1", "Step 1 of 3"))}
 
 <h2>Step 2 — Choose what to back up</h2>
-{shots(("backup-2", "Step 2 of 3"))}
 <table>
 <tr><th>Option</th><th>What it does</th></tr>
 <tr><td>Attendance app</td><td>Syncs only attendance, location and leads. Calls and everything else stay on the phone.</td></tr>
@@ -197,11 +201,9 @@ page("backup-sync", "Backup & sync", "Features", "☁️",
 
 <h2>Step 3 — Exclude numbers (optional)</h2>
 <p>Numbers on this list are never uploaded. Their calls and CRM data stay only on this phone. Tap {ui("Add numbers to exclude")}, then {ui("Skip &amp; Finish")}.</p>
-{shots(("backup-3", "Step 3 of 3"))}
 
 <h2>Check sync status</h2>
 <p>Open {ui("All Tools")} → {ui("Sync settings")} (or {ui("Settings")} → {ui("Backup &amp; sync")}). The <b>Cloud sync</b> section shows progress for call logs, leads, follow-ups, message templates, paid clients, products, packages, attachments, lead fields and lead statuses.</p>
-{shots(("sync-status", "Sync status"))}
 <ul>
 <li><b>Pending</b> — waiting to upload. It clears automatically when you are online.</li>
 <li><b>Empty</b> — nothing to sync in that section yet.</li>
@@ -368,7 +370,10 @@ def main():
     order = [p for g in GROUPS for p in PAGES if p["group"] == g]
     for n, p in enumerate(order):
         R = "../"
-        body, heads = add_ids(p["body"].replace("{R}", R))
+        raw = p["body"].replace("{R}", R)
+        if p["slug"] in VIDEOS:
+            raw += video_block(VIDEOS[p["slug"]], R)
+        body, heads = add_ids(raw)
         index.append(dict(u=p["slug"] + "/", t=p["title"], p=p["summary"], k=""))
         texts = section_text(body)
         for (i, t), txt in zip(heads, texts):
@@ -409,8 +414,8 @@ def main():
     # Search index (URLs relative to site root; prefix added at runtime)
     write("assets/search-index.js", "(function(){var b=document.currentScript.src.replace(/assets\\/search-index\\.js.*$/,'');window.DIALMIO_INDEX="
           + json.dumps(index, ensure_ascii=False) + ".map(function(x){x.u=b+x.u;return x})})();\n")
-    write("404.html", head("Page not found · " + SITE, "Page not found", "/") + topbar("/")
-          + '<div class="home" style="text-align:center"><h1>Page not found</h1><p>Try the search above or go to the <a href="/">Help Center home</a>.</p></div>' + foot("/"))
+    write("404.html", head("Page not found · " + SITE, "Page not found", "/dialmio-docs/") + topbar("/dialmio-docs/")
+          + '<div class="home" style="text-align:center"><h1>Page not found</h1><p>Try the search above or go to the <a href="/dialmio-docs/">Help Center home</a>.</p></div>' + foot("/dialmio-docs/"))
     print("built", len(order) + 1, "pages")
 
 
