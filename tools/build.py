@@ -37,7 +37,7 @@ VIDEOS = {"getting-started": "getting-started", "call-analytics": "call-analytic
 
 def video_block(name, R):
     return (f'<h2>Video guide</h2><div class="video"><video controls preload="none" playsinline '
-            f'poster="{R}assets/video/{name}.jpg"><source src="{R}assets/video/{name}.mp4?v=2" type="video/mp4"></video></div>')
+            f'poster="{R}assets/video/{name}.jpg"><source src="{R}assets/video/{name}.mp4?v=3" type="video/mp4"></video></div>')
 
 
 def page(slug, title, group, icon, summary, body, nav=None):
