@@ -124,5 +124,5 @@ footer{border-top:1px solid var(--line);padding:22px 20px;text-align:center;colo
   .pager{flex-direction:column}
 }
 
-.video{margin:16px 0;max-width:360px}
-.video video{width:100%;border-radius:16px;border:6px solid var(--navy);background:#000;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+.video{margin:16px 0;width:280px;max-width:100%}
+.video video{display:block;width:100%;height:auto;max-height:560px;border-radius:16px;border:5px solid var(--navy);background:#000;box-shadow:0 6px 18px rgba(0,0,0,.12)}

@@ -334,13 +334,13 @@ def head(title, desc, R):
 <meta name="description" content="{html.escape(desc)}">
 <link rel="icon" href="{R}assets/img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{R}assets/style.css">
+<link rel="stylesheet" href="{R}assets/style.css?v=2">
 </head><body>'''
 
 
 def foot(R):
     return f'''<footer>© Dialmio · Call Management CRM · <a href="{R}contact/">Contact support</a></footer>
-<script src="{R}assets/search-index.js"></script><script src="{R}assets/app.js"></script></body></html>'''
+<script src="{R}assets/search-index.js"></script><script src="{R}assets/app.js?v=2"></script></body></html>'''
 
 
 def sidebar(cur, R, heads):
