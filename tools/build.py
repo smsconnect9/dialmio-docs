@@ -32,7 +32,7 @@ PAGES = []
 
 
 # Videos shown at the end of a page: slug -> file name in assets/video (mp4 + jpg poster)
-VIDEOS = {"getting-started": "getting-started"}
+VIDEOS = {"getting-started": "getting-started", "call-analytics": "call-analytics"}
 
 
 def video_block(name, R):
@@ -121,10 +121,58 @@ page("calling", "Calling & auto dialer", "Features", "📞",
 <p>Calling and logging work offline. Data syncs to your account the next time you are online (if backup is on).</p>
 
 <h2>Analytics</h2>
-<p>Tap {ui("Analytics")} on the home screen to see call counts and talk time. Use the SIM chips to view each SIM separately.</p>
+<p>See call counts, talk time and charts for any date range. Full guide: <a href="{{R}}call-analytics/">Call analytics</a>.</p>
 
 <h2>App language</h2>
 <p>Dialmio supports 40 languages. Change it from {ui("All Tools")} → {ui("App Language")}.</p>
+""")
+
+page("call-analytics", "Call analytics", "Features", "📊",
+     "See total calls, talk time, connected rate and monthly charts — then export or share the report.", f"""
+<h2>Open Analytics</h2>
+<ol class="steps">
+<li>Open Dialmio and stay on the {ui("Home")} screen.</li>
+<li>At the bottom of the call list, tap {ui("Analytics")} (next to {ui("All")} and your SIM chips).</li>
+</ol>
+<p>The top of the screen shows the <b>total calls</b> and <b>total talk time</b> for the period you choose.</p>
+
+<h2>Choose a date range and SIM</h2>
+<ol class="steps">
+<li>Tap {ui("Today")}, {ui("Last 7 days")}, {ui("This month")} or {ui("All time")}.</li>
+<li>For your own dates tap {ui("Custom")}, pick the start date and end date on the calendar and tap {ui("Apply")}.</li>
+<li>Tap a SIM chip (for example {ui("airtel")} or {ui("Vi India")}) to see only that SIM's calls.</li>
+</ol>
+
+<h2>Summary tab</h2>
+<p>{ui("Summary")} shows each number as a ring so you can read it at a glance:</p>
+<table>
+<tr><th>Ring</th><th>Meaning</th></tr>
+<tr><td>Incoming / Outgoing</td><td>Calls received and made, with talk time under each</td></tr>
+<tr><td>Missed</td><td>Incoming calls you did not answer</td></tr>
+<tr><td>Connected</td><td>Calls that were answered, with total talk time</td></tr>
+<tr><td>Unique</td><td>Different phone numbers you spoke with</td></tr>
+<tr><td>Rejected</td><td>Calls you declined</td></tr>
+<tr><td>Lost Lead</td><td>Calls with numbers marked as lost leads</td></tr>
+<tr><td>Blocked / Spam</td><td>Calls from blocked or spam numbers</td></tr>
+</table>
+
+<h2>Analysis tab</h2>
+<p>Tap {ui("Analysis")} to see the same figures as a list: total calls, incoming and outgoing (count and time), missed, rejected, connected with <b>connect rate %</b>, unique numbers, lost leads, blocked, spam, total talk time and WhatsApp.</p>
+
+<h2>Monthly charts</h2>
+<p>Scroll down to see two charts:</p>
+<ul>
+<li><b>Call count (per month)</b> — incoming, outgoing, missed and rejected calls each month.</li>
+<li><b>Call duration (hours)</b> — incoming and outgoing talk time each month.</li>
+</ul>
+
+<h2>Export and share the report</h2>
+<ol class="steps">
+<li>Scroll to the bottom to <b>Export calls</b>. It exports the calls for the range you selected.</li>
+<li>Tap {ui("Excel")} or {ui("PDF")} to save the file or share it.</li>
+<li>Tap {ui("Share today's report")} to send today's call summary — for example to your manager on WhatsApp.</li>
+</ol>
+<div class="tip"><b>Tip</b>Use {ui("Custom")} with one SIM selected to check a single team member's or a single number's performance for any period.</div>
 """)
 
 page("leads", "Leads & automation", "Features", "🎯",
