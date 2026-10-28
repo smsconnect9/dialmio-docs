@@ -32,7 +32,7 @@ PAGES = []
 
 
 # Videos shown at the end of a page: slug -> file name in assets/video (mp4 + jpg poster)
-VIDEOS = {"getting-started": "getting-started", "call-analytics": "call-analytics"}
+VIDEOS = {"getting-started": "getting-started", "call-analytics": "call-analytics", "status-remark-reminder": "status-remark-reminder"}
 
 
 def video_block(name, R):
@@ -103,7 +103,7 @@ page("calling", "Calling & auto dialer", "Features", "📞",
 <div class="tip"><b>Tip</b>Keep a column for the customer name in your Excel file so the caller sees who they are calling.</div>
 
 <h2>After-call sheet</h2>
-<p>When a call ends, a two-tap sheet lets you save the outcome right away: set the <b>Status</b>, add a <b>Remark</b> and schedule a <b>Reminder</b>. You can do the same later from any call-log entry using the {ui("Status")} {ui("Remark")} {ui("Reminder")} buttons, and see the full timeline with {ui("History")}.</p>
+<p>When a call ends, a two-tap sheet lets you save the outcome right away: set the <b>Status</b>, add a <b>Remark</b> and schedule a <b>Reminder</b>. You can do the same later from any call-log entry using the {ui("Status")} {ui("Remark")} {ui("Reminder")} buttons, and see the full timeline with {ui("History")}. Step-by-step: <a href="{{R}}status-remark-reminder/">Update status, remark &amp; reminder</a>.</p>
 
 <h2>Full customer detail on every call</h2>
 <p>When a known number calls, Dialmio shows the name, status, last note and next follow-up on screen — caller ID comes from your own records.</p>
@@ -126,6 +126,54 @@ page("calling", "Calling & auto dialer", "Features", "📞",
 <h2>App language</h2>
 <p>Dialmio supports 40 languages. Change it from {ui("All Tools")} → {ui("App Language")}.</p>
 """)
+
+page("status-remark-reminder", "Update status, remark & reminder", "Features", "📝",
+     "Change a lead's status, note what happened on the call and set a follow-up reminder — all from your call log.", f"""
+<h2>Open the contact</h2>
+<ol class="steps">
+<li>On the {ui("Home")} screen, go to {ui("Call Logs")}.</li>
+<li>Tap the contact (or number) you spoke with. <b>Call Details</b> opens with the current status under the name.</li>
+</ol>
+<div class="tip"><b>Shortcut</b>Each call-log entry also has {ui("Status")} {ui("Remark")} {ui("Reminder")} buttons, so you can update it without opening Call Details.</div>
+
+<h2>Update the status</h2>
+<ol class="steps">
+<li>In Call Details tap {ui("Status")}. The <b>Update lead</b> sheet opens.</li>
+<li>Under <b>Status</b>, tap the new stage — for example {ui("Interested")}. Stages include New, Contacted, Follow-Up, Interested, Qualified, Demo schedule, Demo Done, Proposal Sent, Negotiation, Won, Lost, Not Interested, No Response / Unreachable and On Hold / Future Prospect.</li>
+<li>Need your own stage? Tap {ui("+ New")}, or {ui("Manage")} to edit the list.</li>
+</ol>
+
+<h2>Add a remark</h2>
+<ol class="steps">
+<li>Scroll down to <b>Remark</b> and tap <i>What happened on the call? (optional)</i>.</li>
+<li>Type a short note, for example <i>interested</i>. You can also tap the mic to speak it.</li>
+</ol>
+
+<h2>Set a follow-up reminder</h2>
+<ol class="steps">
+<li>Under <b>Follow-up reminder</b>, choose <b>Why</b>: {ui("Callback")}, {ui("Send quote")}, {ui("Payment reminder")}, {ui("Send details")}, {ui("Product demo")}, {ui("Negotiation")}, {ui("Check interest")} or {ui("Not reachable")}.</li>
+<li>Choose <b>When</b>: {ui("5 min")}, {ui("15 min")}, {ui("30 min")}, {ui("1 hour")}, {ui("3 hours")}, {ui("Tomorrow")} or {ui("1 week")}.</li>
+<li>Optional — <b>WhatsApp message with this reminder</b>: {ui("No message")}, {ui("Default")} or {ui("Pick template")}.</li>
+<li>Optional — <b>Repeat reminder</b>: {ui("Off")}, {ui("Daily")}, {ui("Weekly")}, {ui("Monthly")}, {ui("Yearly")} or {ui("Every X days")}.</li>
+<li>Tap {ui("Save")}. Status, remark and reminder are saved together.</li>
+</ol>
+
+<h2>Check the history</h2>
+<p>Back in Call Details, use the tabs under the contact:</p>
+<table>
+<tr><th>Tab</th><th>What you see</th><th>Button</th></tr>
+<tr><td>Status</td><td>Every status change with date and time, e.g. <i>Contacted → Interested</i></td><td>{ui("+ Change status")}</td></tr>
+<tr><td>Remark</td><td>All remarks; tap the pencil to edit</td><td>{ui("+ Add remark / Revisit")}</td></tr>
+<tr><td>Reminder</td><td>Due reminders with reason and time</td><td>{ui("+ Set reminder")}, {ui("Mark done")}</td></tr>
+</table>
+
+<h2>See all follow-ups</h2>
+<ol class="steps">
+<li>Tap {ui("Leads")} at the top to see every lead with its new status.</li>
+<li>Tap {ui("Reminders")} at the top to open <b>Follow-up reminders</b>. Use {ui("Pending")} and {ui("Completed")} to filter. Late ones are marked <b>Overdue</b>.</li>
+<li>On a reminder tap {ui("Mark done")} after the follow-up, {ui("Call log")} to see the calls, or {ui("Reschedule")} to move it.</li>
+</ol>
+""", nav="Status, remark & reminder")
 
 page("call-analytics", "Call analytics", "Features", "📊",
      "See total calls, talk time, connected rate and monthly charts — then export or share the report.", f"""
