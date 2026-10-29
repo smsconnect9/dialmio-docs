@@ -32,7 +32,7 @@ PAGES = []
 
 
 # Videos shown at the end of a page: slug -> file name in assets/video (mp4 + jpg poster)
-VIDEOS = {"getting-started": "getting-started", "call-analytics": "call-analytics", "status-remark-reminder": "status-remark-reminder"}
+VIDEOS = {"getting-started": "getting-started", "call-analytics": "call-analytics", "status-remark-reminder": "status-remark-reminder", "auto-dialer": "auto-dialer"}
 
 
 def video_block(name, R):
@@ -94,7 +94,7 @@ page("getting-started", "Getting started with Dialmio", "Start here", "🚀",
 page("calling", "Calling & auto dialer", "Features", "📞",
      "Auto dial from Excel, after-call notes, call recording, follow-up alarms and missed-call callbacks.", f"""
 <h2>Auto dial from Excel</h2>
-<p>Upload a list and let Dialmio dial it for you — up to 100 numbers with one tap. No more dialling by hand.</p>
+<p>Upload a list and let Dialmio dial it for you — up to 100 numbers with one tap. No more dialling by hand. Full guide with video: <a href="{{R}}auto-dialer/">Auto dialer</a>.</p>
 <ol class="steps">
 <li>Tap {ui("Auto Dial")} in the bottom bar.</li>
 <li>Import your numbers from an Excel/CSV file, or pick leads already in Dialmio.</li>
@@ -125,6 +125,40 @@ page("calling", "Calling & auto dialer", "Features", "📞",
 
 <h2>App language</h2>
 <p>Dialmio supports 40 languages. Change it from {ui("All Tools")} → {ui("App Language")}.</p>
+""")
+
+page("auto-dialer", "Auto dialer", "Features", "🔁",
+     "Call your whole lead list one by one, hands-free — from Assigned leads or the Leads tab.", f"""
+<h2>Open the Auto Dialer</h2>
+<ol class="steps">
+<li>Open Dialmio and tap {ui("Auto Dial")} in the bottom bar.</li>
+<li>You see all the leads assigned to you. At the top there is the <b>Auto Dialer</b> card — tap {ui("Start")} on it.</li>
+</ol>
+<div class="tip"><b>Have a list?</b>Tap <i>Have a list? Import Excel or CSV</i> on the same screen to bring in numbers before you start.</div>
+
+<h2>How the Auto Dialer works</h2>
+<p>A short guide opens before your first session:</p>
+<ul>
+<li><b>Calls your list one by one</b> — tap Start once and every pending lead in your current filter is dialled for you, hands-free.</li>
+<li><b>Waits while you log the call</b> — after each call, set the status or add a remark. The next call starts only when you finish.</li>
+<li><b>Marks leads complete for you</b> — every dialled call completes the lead and updates it on your web CRM automatically.</li>
+<li><b>Your pace, your SIM</b> — set the gap between calls, the SIM to dial from, and speaker on or off in the dialler settings (gear icon).</li>
+</ul>
+<p>Tap {ui("Start")} to continue.</p>
+
+<h2>Start calling</h2>
+<ol class="steps">
+<li>The <b>Auto-dialer</b> screen shows how many leads are pending (for example <i>6 leads pending</i>) and the <b>Up next</b> list.</li>
+<li>Untick any lead you want to skip. Use {ui("Filter")}, {ui("Due today")}, {ui("Sort")} or {ui("Product")} to choose which leads get dialled.</li>
+<li>Tap {ui("Start auto-dialer")} to call the whole list automatically, or {ui("Call next manually")} to dial one lead at a time yourself.</li>
+</ol>
+
+<h2>Auto dial from the Leads tab</h2>
+<ol class="steps">
+<li>Go back and open {ui("Leads")} at the top.</li>
+<li>Tap {ui("Auto Dial")} in the top-right corner.</li>
+<li>Choose {ui("All")}, {ui("New")} or {ui("Contacted")} leads, then tap {ui("Start auto-dialer")}.</li>
+</ol>
 """)
 
 page("status-remark-reminder", "Update status, remark & reminder", "Features", "📝",
