@@ -510,8 +510,8 @@ def main():
     # Search index (URLs relative to site root; prefix added at runtime)
     write("assets/search-index.js", "(function(){var b=document.currentScript.src.replace(/assets\\/search-index\\.js.*$/,'');window.DIALMIO_INDEX="
           + json.dumps(index, ensure_ascii=False) + ".map(function(x){x.u=b+x.u;return x})})();\n")
-    write("404.html", head("Page not found · " + SITE, "Page not found", "/dialmio-docs/") + topbar("/dialmio-docs/")
-          + '<div class="home" style="text-align:center"><h1>Page not found</h1><p>Try the search above or go to the <a href="/dialmio-docs/">Help Center home</a>.</p></div>' + foot("/dialmio-docs/"))
+    write("404.html", head("Page not found · " + SITE, "Page not found", "/") + topbar("/")
+          + '<div class="home" style="text-align:center"><h1>Page not found</h1><p>Try the search above or go to the <a href="/">Help Center home</a>.</p></div>' + foot("/"))
     print("built", len(order) + 1, "pages")
 
 
