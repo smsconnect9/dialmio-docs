@@ -1,0 +1,54 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dashboard overview · Dialmio Help Center</title>
+<meta name="description" content="A tour of the Dialmio web dashboard at app.dialmio.com — leads and reports, setup, import and Live Sheets.">
+<link rel="icon" href="../assets/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css?v=3">
+</head><body><header class="topbar">
+<button class="menu-btn" aria-label="Menu">☰</button>
+<a class="brand" href="../"><img src="../assets/img/logo.png" alt="Dialmio"><span>Dial<b>mio</b></span><small>Help</small></a>
+<div class="top-search" data-search><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input type="search" placeholder="Search help articles…" aria-label="Search"><div class="results"></div></div>
+<nav class="top-links"><a href="https://dialmio.com" target="_blank" rel="noopener">dialmio.com</a><a class="btn" href="https://play.google.com/store/search?q=dialmio&c=apps" target="_blank" rel="noopener">Get the app</a></nav>
+</header><div class="layout"><aside class="sidebar"><h4>Start here</h4><a href="../getting-started/">Getting started with Dialmio</a><h4>Features</h4><a href="../calling/">Calling & auto dialer</a><a href="../auto-dialer/">Auto dialer</a><a href="../status-remark-reminder/">Status, remark & reminder</a><a href="../call-analytics/">Call analytics</a><a href="../leads/">Leads & automation</a><a href="../whatsapp/">WhatsApp</a><a href="../backup-sync/">Backup & sync</a><h4>For owners</h4><a href="../team/">Team & owners</a><a href="../dashboard-overview/" class="current">Dashboard overview</a><div class="sub"><a href="#leads-call-logs-profiles-reports">Leads: call logs, profiles & reports</a><a href="#setup">Setup</a><a href="#import-leads">Import leads</a><a href="#live-sheets">Live Sheets</a><a href="#video-guide">Video guide</a></div><a href="../developer-api/">Developer API</a><h4>Account</h4><a href="../pricing/">Plans & pricing</a><a href="../faq/">FAQs</a><a href="../contact/">Contact support</a></aside><main><div class="crumb"><a href="../">Help Center</a> › For owners</div><h1>Dashboard overview</h1><p class="lead">A tour of the Dialmio web dashboard at app.dialmio.com — leads and reports, setup, import and Live Sheets.</p>
+<p>The web dashboard is where owners and admins manage everything the team does in the Dialmio app. Open <b>app.dialmio.com</b> in your browser and sign in with your registered mobile number.</p>
+
+<h2 id="leads-call-logs-profiles-reports">Leads: call logs, profiles &amp; reports</h2>
+<ol class="steps">
+<li>In the left menu, open <span class="ui">Leads</span>.</li>
+<li>Use the tabs to switch views: <span class="ui">Call Logs</span>, <span class="ui">Lead Profiles</span>, <span class="ui">Reports</span>, <span class="ui">Employee Report</span>, <span class="ui">Call Logs Reports</span>, <span class="ui">Lead Profiles Reports</span>, <span class="ui">AI Calls</span>, <span class="ui">WhatsApp Contacts</span>, <span class="ui">Paid Clients</span>, <span class="ui">Followups</span>, <span class="ui">Team</span>, <span class="ui">Trash</span> and <span class="ui">Downloads</span>.</li>
+<li>Filter by <span class="ui">Today</span>, <span class="ui">Yesterday</span>, <span class="ui">7 days</span>, <span class="ui">30 days</span>, <span class="ui">This month</span>, <span class="ui">All time</span> or your own dates, and by call type or employee. Tap <span class="ui">Export</span> to download.</li>
+</ol>
+<p>The summary cards show <b>Contacts, Total calls, Connected, Missed</b> and <b>Talk time</b>, each compared with yesterday.</p>
+
+<h2 id="setup">Setup</h2>
+<p>Open <span class="ui">Setup</span> in the left menu. Everything your team sees in the app is configured here:</p>
+<table>
+<tr><th>Tab</th><th>What you manage</th></tr>
+<tr><td>Message Templates</td><td>WhatsApp messages your team can send, with category and attachment. Tap <span class="ui">+ New Template</span>.</td></tr>
+<tr><td>Products</td><td>The products or services you sell. Tap <span class="ui">+ New Product</span>.</td></tr>
+<tr><td>Packages</td><td>Plans with price and billing cycle. Tap <span class="ui">+ New Package</span>.</td></tr>
+<tr><td>Status Types</td><td>Lead stages such as New, Contacted, Interested. Tap <span class="ui">+ New Status</span> to add your own.</td></tr>
+<tr><td>Lead Fields / Client Fields</td><td>Extra fields you want to store for each lead or client. Tap <span class="ui">+ New Field</span>.</td></tr>
+<tr><td>Permissions, Branch, Employees</td><td>Who can see and do what, and which branch each employee belongs to.</td></tr>
+<tr><td>WhatsApp Configs, Auto WA Rules, WhatsApp Inbox</td><td>Connect your WhatsApp Business API and set automatic messages.</td></tr>
+<tr><td>Outbound API</td><td>Send lead-status changes to your own CRM or software.</td></tr>
+</table>
+<div class="note"><b>Approval</b>Only <b>approved</b> products, packages, statuses and fields are visible in the app. Pending ones stay in the dashboard until approved.</div>
+
+<h2 id="import-leads">Import leads</h2>
+<ol class="steps">
+<li>Open <span class="ui">Import</span> in the left menu.</li>
+<li>Give the import a name, then choose the source: <span class="ui">Google Sheet</span> (paste a sheet link shared as <i>Anyone with the link</i>), <span class="ui">Upload file</span> (.xlsx, .xls or .csv) or <span class="ui">Paste from Excel</span>.</li>
+<li>Map the columns, pick a product and the employees, and finish. Leads are shared among the selected employees round-robin.</li>
+</ol>
+
+<h2 id="live-sheets">Live Sheets</h2>
+<ol class="steps">
+<li>Open <span class="ui">Live Sheets</span> in the left menu and tap <span class="ui">+ Connect a sheet</span>.</li>
+<li>Connect a Google Sheet once. Every new row that comes into the sheet becomes a lead automatically and is assigned to your employees round-robin.</li>
+<li>Each connected sheet shows leads received, last sync and a <span class="ui">Report</span>. The <b>Webhook log</b> below shows every sync with rows new, updated, duplicate or invalid.</li>
+</ol>
+<div class="tip"><b>Other lead sources</b><span class="ui">Bolna Incoming</span> and <span class="ui">Custom Webhook</span> in the same menu bring leads in from AI calls and other software.</div>
+<h2 id="video-guide">Video guide</h2><div class="video wide"><video controls preload="none" playsinline poster="../assets/video/dashboard-overview.jpg?v=10"><source src="../assets/video/dashboard-overview.mp4?v=10" type="video/mp4"></video></div><div class="pager"><a href="../team/"><small>← Previous</small>Team & owner tools</a><a class="next" href="../developer-api/"><small>Next →</small>Developer API</a></div><div class="help-box"><div><b>Still need help?</b><p>Our team replies Mon–Sat, 10 am – 7 pm IST.</p></div><a class="btn" href="https://wa.me/919920937711" target="_blank" rel="noopener">Chat on WhatsApp</a></div></main><nav class="toc"><b>On this page</b><a href="#leads-call-logs-profiles-reports">Leads: call logs, profiles & reports</a><a href="#setup">Setup</a><a href="#import-leads">Import leads</a><a href="#live-sheets">Live Sheets</a><a href="#video-guide">Video guide</a></nav></div><footer>© Dialmio · Call Management CRM · <a href="../contact/">Contact support</a></footer>
+<script src="../assets/search-index.js"></script><script src="../assets/app.js?v=2"></script></body></html>

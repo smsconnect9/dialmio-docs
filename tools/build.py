@@ -32,11 +32,15 @@ PAGES = []
 
 
 # Videos shown at the end of a page: slug -> file name in assets/video (mp4 + jpg poster)
-VIDEOS = {"getting-started": "getting-started", "call-analytics": "call-analytics", "status-remark-reminder": "status-remark-reminder", "auto-dialer": "auto-dialer"}
+VIDEOS = {"getting-started": "getting-started", "call-analytics": "call-analytics", "status-remark-reminder": "status-remark-reminder", "auto-dialer": "auto-dialer", "dashboard-overview": "dashboard-overview"}
+
+
+WIDE = {"dashboard-overview"}
 
 
 def video_block(name, R):
-    return (f'<h2>Video guide</h2><div class="video"><video controls preload="none" playsinline '
+    cls = "video wide" if name in WIDE else "video"
+    return (f'<h2>Video guide</h2><div class="{cls}"><video controls preload="none" playsinline '
             f'poster="{R}assets/video/{name}.jpg?v=10"><source src="{R}assets/video/{name}.mp4?v=10" type="video/mp4"></video></div>')
 
 
@@ -367,6 +371,49 @@ page("team", "Team & owner tools", "For owners", "👥",
 <p>Search a name or number once to find their calls, lead record, notes and WhatsApp chats together.</p>
 """, nav="Team & owners")
 
+page("dashboard-overview", "Dashboard overview", "For owners", "🖥️",
+     "A tour of the Dialmio web dashboard at app.dialmio.com — leads and reports, setup, import and Live Sheets.", f"""
+<p>The web dashboard is where owners and admins manage everything the team does in the Dialmio app. Open <b>app.dialmio.com</b> in your browser and sign in with your registered mobile number.</p>
+
+<h2>Leads: call logs, profiles &amp; reports</h2>
+<ol class="steps">
+<li>In the left menu, open {ui("Leads")}.</li>
+<li>Use the tabs to switch views: {ui("Call Logs")}, {ui("Lead Profiles")}, {ui("Reports")}, {ui("Employee Report")}, {ui("Call Logs Reports")}, {ui("Lead Profiles Reports")}, {ui("AI Calls")}, {ui("WhatsApp Contacts")}, {ui("Paid Clients")}, {ui("Followups")}, {ui("Team")}, {ui("Trash")} and {ui("Downloads")}.</li>
+<li>Filter by {ui("Today")}, {ui("Yesterday")}, {ui("7 days")}, {ui("30 days")}, {ui("This month")}, {ui("All time")} or your own dates, and by call type or employee. Tap {ui("Export")} to download.</li>
+</ol>
+<p>The summary cards show <b>Contacts, Total calls, Connected, Missed</b> and <b>Talk time</b>, each compared with yesterday.</p>
+
+<h2>Setup</h2>
+<p>Open {ui("Setup")} in the left menu. Everything your team sees in the app is configured here:</p>
+<table>
+<tr><th>Tab</th><th>What you manage</th></tr>
+<tr><td>Message Templates</td><td>WhatsApp messages your team can send, with category and attachment. Tap {ui("+ New Template")}.</td></tr>
+<tr><td>Products</td><td>The products or services you sell. Tap {ui("+ New Product")}.</td></tr>
+<tr><td>Packages</td><td>Plans with price and billing cycle. Tap {ui("+ New Package")}.</td></tr>
+<tr><td>Status Types</td><td>Lead stages such as New, Contacted, Interested. Tap {ui("+ New Status")} to add your own.</td></tr>
+<tr><td>Lead Fields / Client Fields</td><td>Extra fields you want to store for each lead or client. Tap {ui("+ New Field")}.</td></tr>
+<tr><td>Permissions, Branch, Employees</td><td>Who can see and do what, and which branch each employee belongs to.</td></tr>
+<tr><td>WhatsApp Configs, Auto WA Rules, WhatsApp Inbox</td><td>Connect your WhatsApp Business API and set automatic messages.</td></tr>
+<tr><td>Outbound API</td><td>Send lead-status changes to your own CRM or software.</td></tr>
+</table>
+<div class="note"><b>Approval</b>Only <b>approved</b> products, packages, statuses and fields are visible in the app. Pending ones stay in the dashboard until approved.</div>
+
+<h2>Import leads</h2>
+<ol class="steps">
+<li>Open {ui("Import")} in the left menu.</li>
+<li>Give the import a name, then choose the source: {ui("Google Sheet")} (paste a sheet link shared as <i>Anyone with the link</i>), {ui("Upload file")} (.xlsx, .xls or .csv) or {ui("Paste from Excel")}.</li>
+<li>Map the columns, pick a product and the employees, and finish. Leads are shared among the selected employees round-robin.</li>
+</ol>
+
+<h2>Live Sheets</h2>
+<ol class="steps">
+<li>Open {ui("Live Sheets")} in the left menu and tap {ui("+ Connect a sheet")}.</li>
+<li>Connect a Google Sheet once. Every new row that comes into the sheet becomes a lead automatically and is assigned to your employees round-robin.</li>
+<li>Each connected sheet shows leads received, last sync and a {ui("Report")}. The <b>Webhook log</b> below shows every sync with rows new, updated, duplicate or invalid.</li>
+</ol>
+<div class="tip"><b>Other lead sources</b>{ui("Bolna Incoming")} and {ui("Custom Webhook")} in the same menu bring leads in from AI calls and other software.</div>
+""")
+
 page("developer-api", "Developer API", "For owners", "🔌",
      "Connect Dialmio with your own CRM or software in both directions.", f"""
 <h2>Connect any CRM API</h2>
@@ -464,7 +511,7 @@ def head(title, desc, R):
 <meta name="description" content="{html.escape(desc)}">
 <link rel="icon" href="{R}assets/img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{R}assets/style.css?v=2">
+<link rel="stylesheet" href="{R}assets/style.css?v=3">
 </head><body>'''
 
 
