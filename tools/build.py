@@ -35,7 +35,7 @@ PAGES = []
 VIDEOS = {"getting-started": "getting-started", "call-analytics": "call-analytics", "status-remark-reminder": "status-remark-reminder", "auto-dialer": "auto-dialer", "dashboard-overview": "dashboard-overview"}
 
 
-WIDE = {"dashboard-overview"}
+WIDE = {"dashboard-overview", "live-sheets"}
 
 
 def video_block(name, R):
@@ -275,6 +275,22 @@ page("leads", "Leads & automation", "Features", "🎯",
 </ul>
 <p>Any caller who is not yet a lead can be added with the {ui("Add")} button on the call-log entry.</p>
 <div class="note"><b>Need help connecting a source?</b>Our team will set up IndiaMART, Facebook Lead Ads or Google Sheets for you. <a href="{{R}}contact/">Contact support</a>.</div>
+
+<h2>Connect a Live Sheet (Google Sheet)</h2>
+<p>Connect a Google Sheet once and every new row becomes a lead, assigned to your team automatically. Do this from the web dashboard at <b>app.dialmio.com</b>.</p>
+<ol class="steps">
+<li>Open {ui("Live Sheets")} in the left menu and tap {ui("+ Connect a sheet")}.</li>
+<li>Give the connection a <b>Sheet name</b>, for example <i>Website enquiries</i>.</li>
+<li>In Google Sheets tap {ui("Share")} → under <b>General access</b> choose <b>Anyone with the link</b> (Viewer) → {ui("Copy link")}.</li>
+<li>Paste the link in <b>Google Sheet link</b>. <b>Tab name</b> is optional — leave it blank to use the active tab. Tap {ui("Read columns")}.</li>
+<li>Check the <b>Map columns</b> step: Dialmio matches your sheet columns (for example Name, Number, Status) and shows sample data. Change any mapping you want, then tap {ui("Continue")}.</li>
+<li>Choose the <b>Product</b> and the <b>Distribution</b>: {ui("Round robin — all employees")}, {ui("Selected employees only")} or {ui("Custom percentage")}. Tick the employees and tap {ui("Create live sheet")}.</li>
+<li>Tap {ui("Copy the script")}. In your Google Sheet open {ui("Extensions")} → {ui("Apps Script")}, delete the starter code, paste the script and {ui("Save")}.</li>
+<li>Tap {ui("Run")} and allow access. Optional: add a time-driven trigger (every minute) as shown on the setup screen so new rows keep syncing.</li>
+<li>Back in the dashboard, refresh the page. The sheet shows <b>Syncing</b>. Tap {ui("Report")} to see rows received and which employee each lead was assigned to.</li>
+<li>Tap {ui("Open lead profiles")} to see the new leads with status <i>Not called</i>. Open any lead to see its <b>Journey</b> — assigned by sheet import, then every call and update.</li>
+</ol>
+<div class="note"><b>Watch it step by step</b>The video at the end of this page walks through the whole setup.</div>
 
 <h2>Round-robin distribution</h2>
 <p>New leads can be shared automatically among your team one by one, so every caller gets a fair share. Assigned leads show in each caller's <b>Assigned</b> tab.</p>
