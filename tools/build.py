@@ -32,7 +32,7 @@ PAGES = []
 
 
 # Videos shown at the end of a page: slug -> file name in assets/video (mp4 + jpg poster)
-VIDEOS = {"getting-started": "getting-started", "call-analytics": "call-analytics", "status-remark-reminder": "status-remark-reminder", "auto-dialer": "auto-dialer", "dashboard-overview": "dashboard-overview"}
+VIDEOS = {"getting-started": "getting-started", "call-analytics": "call-analytics", "status-remark-reminder": "status-remark-reminder", "auto-dialer": "auto-dialer", "dashboard-overview": "dashboard-overview", "leads": "live-sheets"}
 
 
 WIDE = {"dashboard-overview", "live-sheets"}
