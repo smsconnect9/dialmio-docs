@@ -41,7 +41,7 @@ WIDE = {"dashboard-overview", "live-sheets"}
 def video_block(name, R):
     cls = "video wide" if name in WIDE else "video"
     return (f'<h2>Video guide</h2><div class="{cls}"><video controls preload="none" playsinline '
-            f'poster="{R}assets/video/{name}.jpg?v=10"><source src="{R}assets/video/{name}.mp4?v=10" type="video/mp4"></video></div>')
+            f'poster="{R}assets/video/{name}.jpg?v=10"><source src="{R}assets/video/{name}.mp4?v=11" type="video/mp4"></video></div>')
 
 
 def page(slug, title, group, icon, summary, body, nav=None):
