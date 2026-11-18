@@ -301,6 +301,15 @@ page("leads", "Leads & automation", "Features", "🎯",
 <h2>Paid clients &amp; renewals</h2>
 <p>When a lead buys, mark them as a paid client. The <b>Clients</b> tab keeps your paying customers, their products/packages and renewal dates.</p>
 
+<h2>Export leads to CSV</h2>
+<ol class="steps">
+<li>Open {ui("Leads")} in the bottom bar.</li>
+<li>Optional: use {ui("Leads filter")} or the chips ({ui("All")}, {ui("New")}, {ui("Contacted")}…) to choose which leads to export.</li>
+<li>Tap the <b>⋮</b> menu at the top-right and choose {ui("Export CSV")}.</li>
+<li>Pick a folder (for example <i>Dialmio</i>), keep the file name <code>leads.csv</code> or change it, and tap {ui("Save")}.</li>
+<li>You'll see <i>Exported 24 leads</i> (your count). Open the file in Excel or Google Sheets, or share it on WhatsApp or email.</li>
+</ol>
+
 <h2>Excluded numbers</h2>
 <p>Add personal numbers (family, friends) to {ui("All Tools")} → {ui("Excluded numbers")}. Their calls are never uploaded and never become leads.</p>
 """)
