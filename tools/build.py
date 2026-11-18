@@ -32,10 +32,10 @@ PAGES = []
 
 
 # Videos shown at the end of a page: slug -> file name in assets/video (mp4 + jpg poster)
-VIDEOS = {"getting-started": "getting-started", "call-analytics": "call-analytics", "status-remark-reminder": "status-remark-reminder", "auto-dialer": "auto-dialer", "dashboard-overview": "dashboard-overview", "leads": [("live-sheets", "Video guide: Connect a Live Sheet"), ("export-leads", "Video guide: Export leads to CSV")]}
+VIDEOS = {"getting-started": "getting-started", "call-analytics": "call-analytics", "status-remark-reminder": "status-remark-reminder", "auto-dialer": "auto-dialer", "dashboard-overview": "dashboard-overview", "leads": [("live-sheets", "Video guide: Connect a Live Sheet"), ("export-leads", "Video guide: Export leads to CSV (app)"), ("export-leads-web", "Video guide: Export leads to CSV (web dashboard)")]}
 
 
-WIDE = {"dashboard-overview", "live-sheets"}
+WIDE = {"dashboard-overview", "live-sheets", "export-leads-web"}
 
 
 def video_block(name, R):
@@ -43,7 +43,7 @@ def video_block(name, R):
         return "".join(video_block(n, R).replace("<h2>Video guide</h2>", f"<h2>{h}</h2>", 1) for n, h in name)
     cls = "video wide" if name in WIDE else "video"
     return (f'<h2>Video guide</h2><div class="{cls}"><video controls preload="none" playsinline '
-            f'poster="{R}assets/video/{name}.jpg?v=10"><source src="{R}assets/video/{name}.mp4?v=16" type="video/mp4"></video></div>')
+            f'poster="{R}assets/video/{name}.jpg?v=10"><source src="{R}assets/video/{name}.mp4?v=17" type="video/mp4"></video></div>')
 
 
 def page(slug, title, group, icon, summary, body, nav=None):
@@ -310,6 +310,16 @@ page("leads", "Leads & automation", "Features", "🎯",
 <li>Tap the <b>⋮</b> menu at the top-right and choose {ui("Export CSV")}.</li>
 <li>Pick a folder (for example <i>Dialmio</i>), keep the file name <code>leads.csv</code> or change it, and tap {ui("Save")}.</li>
 <li>You'll see <i>Exported 24 leads</i> (your count). Open the file in Excel or Google Sheets, or share it on WhatsApp or email.</li>
+</ol>
+
+<h2>Export leads to CSV from the web dashboard</h2>
+<ol class="steps">
+<li>Open <b>app.dialmio.com</b> and go to {ui("Lead Profiles")}.</li>
+<li>Filter the leads you want: date ({ui("Today")}, {ui("7 days")}, {ui("All time")}…), employee ({ui("All employees")} or one person), import and status.</li>
+<li>Click {ui("Export")} next to {ui("+ New lead")}.</li>
+<li>Check the row count, type a <b>File name</b> and choose {ui("CSV (.csv)")} or {ui("Excel (.xlsx)")}.</li>
+<li>Pick the columns you want (or {ui("All")}), then click {ui("Export … rows")}.</li>
+<li>You are taken to {ui("Downloads")}. When the file shows <b>Ready</b>, click {ui("Download")}. Files are kept for 7 days.</li>
 </ol>
 
 <h2>Excluded numbers</h2>
