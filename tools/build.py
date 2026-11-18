@@ -32,16 +32,18 @@ PAGES = []
 
 
 # Videos shown at the end of a page: slug -> file name in assets/video (mp4 + jpg poster)
-VIDEOS = {"getting-started": "getting-started", "call-analytics": "call-analytics", "status-remark-reminder": "status-remark-reminder", "auto-dialer": "auto-dialer", "dashboard-overview": "dashboard-overview", "leads": "live-sheets"}
+VIDEOS = {"getting-started": "getting-started", "call-analytics": "call-analytics", "status-remark-reminder": "status-remark-reminder", "auto-dialer": "auto-dialer", "dashboard-overview": "dashboard-overview", "leads": [("live-sheets", "Video guide: Connect a Live Sheet"), ("export-leads", "Video guide: Export leads to CSV")]}
 
 
 WIDE = {"dashboard-overview", "live-sheets"}
 
 
 def video_block(name, R):
+    if isinstance(name, list):
+        return "".join(video_block(n, R).replace("<h2>Video guide</h2>", f"<h2>{h}</h2>", 1) for n, h in name)
     cls = "video wide" if name in WIDE else "video"
     return (f'<h2>Video guide</h2><div class="{cls}"><video controls preload="none" playsinline '
-            f'poster="{R}assets/video/{name}.jpg?v=10"><source src="{R}assets/video/{name}.mp4?v=15" type="video/mp4"></video></div>')
+            f'poster="{R}assets/video/{name}.jpg?v=10"><source src="{R}assets/video/{name}.mp4?v=16" type="video/mp4"></video></div>')
 
 
 def page(slug, title, group, icon, summary, body, nav=None):
